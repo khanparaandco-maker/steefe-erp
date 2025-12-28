@@ -3,8 +3,6 @@ services:
   - type: pserv
     name: steefe-erp-db
     plan: free
-    databaseName: steefe_erp_db
-    databaseUser: steefe_erp_user
 
   # Web Service (Backend + Frontend)
   - type: web
@@ -16,8 +14,6 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
-      - key: PORT
-        value: 10000
       - key: DATABASE_URL
         fromDatabase:
           name: steefe-erp-db
@@ -26,4 +22,3 @@ services:
         generateValue: true
       - key: SESSION_SECRET
         generateValue: true
-    autoDeploy: true
