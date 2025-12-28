@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Heat Treatment API</title>
+</head>
+<body>
+    <h1>Heat Treatment API Test</h1>
+    <button onclick="testAPI()">Test API</button>
+    <pre id="result"></pre>
+
+    <script>
+        async function testAPI() {
+            const resultEl = document.getElementById('result');
+            try {
+                resultEl.textContent = 'Loading...';
+                const response = await fetch('http://localhost:3000/api/heat-treatment');
+                const data = await response.json();
+                resultEl.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                resultEl.textContent = 'Error: ' + error.message;
+            }
+        }
+
+        // Auto-test on load
+        window.onload = testAPI;
+    </script>
+</body>
+</html>

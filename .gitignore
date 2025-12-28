@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Uploads
+uploads/*
+!uploads/.gitkeep
+
+# WhatsApp session data
+whatsapp-session/
+
+# Desktop app builds
+desktop-app/dist/
+desktop-app/node_modules/
+desktop-app-delete/
+
+# Temporary files
+temp_token.txt
+*.tmp

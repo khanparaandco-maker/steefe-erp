@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage User Permissions - Reference Mockup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+        .permission-card:hover { transform: translateY(-2px); }
+        .permission-card { transition: all 0.2s ease; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-gray-200 bg-white px-4 shadow-sm lg:px-6">
+        <div class="flex items-center">
+            <button class="mr-4 rounded-lg p-2 text-gray-600 hover:bg-gray-100 lg:hidden">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h2 class="text-lg font-semibold text-gray-800">Steel Manufacturing ERP</h2>
+        </div>
+        <div class="flex items-center space-x-4">
+            <button class="relative rounded-lg p-2 text-gray-600 hover:bg-gray-100">
+                <i class="far fa-bell"></i>
+                <span class="absolute right-1 top-1 h-2 w-2 rounded-full bg-red-500"></span>
+            </button>
+            <div class="flex items-center space-x-2 rounded-lg border border-gray-200 px-3 py-2">
+                <i class="far fa-user text-gray-600"></i>
+                <span class="text-sm font-medium text-gray-700">Admin</span>
+            </div>
+            <button class="rounded-lg p-2 text-gray-600 hover:bg-gray-100" title="Logout">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="hidden lg:block w-64 border-r border-gray-200 bg-white">
+            <nav class="p-4">
+                <div class="mb-2">
+                    <a href="#" class="flex items-center rounded-lg px-3 py-2 text-gray-700 hover:bg-blue-50">
+                        <i class="fas fa-tachometer-alt mr-3 w-5"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </div>
+                <div class="mb-2">
+                    <a href="#" class="flex items-center rounded-lg px-3 py-2 text-gray-700 hover:bg-blue-50">
+                        <i class="fas fa-database mr-3 w-5"></i>
+                        <span>Masters</span>
+                    </a>
+                </div>
+                <div class="mb-2">
+                    <a href="user-management.html" class="flex items-center rounded-lg bg-blue-50 px-3 py-2 text-blue-600 font-medium">
+                        <i class="fas fa-users mr-3 w-5"></i>
+                        <span>User Management</span>
+                    </a>
+                </div>
+                <div class="mb-2">
+                    <a href="#" class="flex items-center rounded-lg px-3 py-2 text-gray-700 hover:bg-blue-50">
+                        <i class="fas fa-cog mr-3 w-5"></i>
+                        <span>Settings</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6">
+            <div class="mx-auto max-w-7xl">
+                <!-- Page Header -->
+                <div class="mb-6">
+                    <div class="flex items-center text-sm text-gray-500 mb-2">
+                        <a href="user-management.html" class="hover:text-blue-600">User Management</a>
+                        <i class="fas fa-chevron-right mx-2 text-xs"></i>
+                        <span class="text-gray-900">Manage Permissions</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h1 class="text-2xl font-bold text-gray-900">Manage User Permissions</h1>
+                            <p class="mt-1 text-sm text-gray-500">Configure access rights for Rajesh Kumar (rajesh.kumar)</p>
+                        </div>
+                        <a href="user-management.html" class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">
+                            <i class="fas fa-arrow-left mr-2"></i>
+                            Back to Users
+                        </a>
+                    </div>
+                </div>
+
+                <!-- User Selection Dropdown -->
+                <div class="mb-6 rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+                    <label class="mb-2 block text-sm font-medium text-gray-700">
+                        Select User
+                    </label>
+                    <select class="w-full max-w-md rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                        <option value="">-- Select a user --</option>
+                        <option value="1">System Administrator (admin)</option>
+                        <option value="2" selected>Rajesh Kumar (rajesh.kumar)</option>
+                        <option value="3">Priya Sharma (priya.sharma)</option>
+                    </select>
+                </div>
+
+                <!-- Permissions Grid -->
+                <div class="rounded-lg border border-gray-200 bg-white shadow-sm">
+                    <div class="border-b border-gray-200 px-6 py-4">
+                        <h2 class="text-lg font-semibold text-gray-900">Module Permissions</h2>
+                        <p class="mt-1 text-sm text-gray-500">Configure access rights for each module and sub-module</p>
+                    </div>
+
+                    <div class="p-6">
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full">
+                                <thead>
+                                    <tr class="border-b border-gray-200">
+                                        <th class="pb-3 text-left text-sm font-semibold text-gray-700" style="width: 40%;">Module / Sub-Module</th>
+                                        <th class="pb-3 text-center text-sm font-semibold text-gray-700" style="width: 15%;">
+                                            <div class="flex flex-col items-center">
+                                                <i class="fas fa-eye text-blue-600 mb-1"></i>
+                                                <span>View Only</span>
+                                            </div>
+                                        </th>
+                                        <th class="pb-3 text-center text-sm font-semibold text-gray-700" style="width: 15%;">
+                                            <div class="flex flex-col items-center">
+                                                <i class="fas fa-edit text-green-600 mb-1"></i>
+                                                <span>Allow Edit</span>
+                                            </div>
+                                        </th>
+                                        <th class="pb-3 text-center text-sm font-semibold text-gray-700" style="width: 15%;">
+                                            <div class="flex flex-col items-center">
+                                                <i class="fas fa-trash text-red-600 mb-1"></i>
+                                                <span>Allow Delete</span>
+                                            </div>
+                                        </th>
+                                        <th class="pb-3 text-center text-sm font-semibold text-gray-700" style="width: 15%;">
+                                            <div class="flex flex-col items-center">
+                                                <i class="fas fa-download text-purple-600 mb-1"></i>
+                                                <span>Allow Export</span>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200">
+                                    <!-- Dashboard -->
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-4">
+                                            <div class="flex items-center">
+                                                <i class="fas fa-tachometer-alt mr-3 text-gray-600"></i>
+                                                <span class="font-medium text-gray-900">Dashboard</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-4 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500" checked />
+                                        </td>
+                                        <td class="py-4 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-green-600 focus:ring-green-500" disabled />
+                                        </td>
+                                        <td class="py-4 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-red-600 focus:ring-red-500" disabled />
+                                        </td>
+                                        <td class="py-4 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-purple-600 focus:ring-purple-500" />
+                                        </td>
+                                    </tr>
+
+                                    <!-- Masters Section -->
+                                    <tr class="bg-gray-50">
+                                        <td colspan="5" class="py-2 px-4">
+                                            <div class="flex items-center font-semibold text-gray-700">
+                                                <i class="fas fa-database mr-2"></i>
+                                                <span>Masters</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-3 pl-12">
+                                            <span class="text-sm text-gray-700">Suppliers</span>
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500" checked />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-green-600 focus:ring-green-500" checked />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-red-600 focus:ring-red-500" />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-purple-600 focus:ring-purple-500" checked />
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-3 pl-12">
+                                            <span class="text-sm text-gray-700">Customers</span>
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500" checked />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-green-600 focus:ring-green-500" checked />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-red-600 focus:ring-red-500" />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-purple-600 focus:ring-purple-500" checked />
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-3 pl-12">
+                                            <span class="text-sm text-gray-700">Items</span>
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500" checked />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-green-600 focus:ring-green-500" checked />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-red-600 focus:ring-red-500" checked />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-purple-600 focus:ring-purple-500" checked />
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-3 pl-12">
+                                            <span class="text-sm text-gray-700">Categories</span>
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500" checked />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-green-600 focus:ring-green-500" />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-red-600 focus:ring-red-500" />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-purple-600 focus:ring-purple-500" />
+                                        </td>
+                                    </tr>
+
+                                    <!-- GRN Section -->
+                                    <tr class="bg-gray-50">
+                                        <td colspan="5" class="py-2 px-4">
+                                            <div class="flex items-center font-semibold text-gray-700">
+                                                <i class="fas fa-truck-loading mr-2"></i>
+                                                <span>GRN (Goods Receipt Note)</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-3 pl-12">
+                                            <span class="text-sm text-gray-700">New GRN</span>
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500" checked />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-green-600 focus:ring-green-500" checked />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-red-600 focus:ring-red-500" />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-purple-600 focus:ring-purple-500" checked />
+                                        </td>
+                                    </tr>
+
+                                    <!-- Manufacturing Section -->
+                                    <tr class="bg-gray-50">
+                                        <td colspan="5" class="py-2 px-4">
+                                            <div class="flex items-center font-semibold text-gray-700">
+                                                <i class="fas fa-industry mr-2"></i>
+                                                <span>Manufacturing</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-3 pl-12">
+                                            <span class="text-sm text-gray-700">Melting Process</span>
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500" checked />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-green-600 focus:ring-green-500" checked />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-red-600 focus:ring-red-500" checked />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-purple-600 focus:ring-purple-500" checked />
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-3 pl-12">
+                                            <span class="text-sm text-gray-700">Heat Treatment</span>
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500" checked />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-green-600 focus:ring-green-500" checked />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-red-600 focus:ring-red-500" />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-purple-600 focus:ring-purple-500" checked />
+                                        </td>
+                                    </tr>
+
+                                    <!-- Orders Section -->
+                                    <tr class="bg-gray-50">
+                                        <td colspan="5" class="py-2 px-4">
+                                            <div class="flex items-center font-semibold text-gray-700">
+                                                <i class="fas fa-shopping-cart mr-2"></i>
+                                                <span>Orders</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-3 pl-12">
+                                            <span class="text-sm text-gray-700">Create/Edit Orders</span>
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500" checked />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-green-600 focus:ring-green-500" />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-red-600 focus:ring-red-500" />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-purple-600 focus:ring-purple-500" checked />
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-3 pl-12">
+                                            <span class="text-sm text-gray-700">Dispatch Orders</span>
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500" checked />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-green-600 focus:ring-green-500" />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-red-600 focus:ring-red-500" />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-purple-600 focus:ring-purple-500" checked />
+                                        </td>
+                                    </tr>
+
+                                    <!-- Reports Section -->
+                                    <tr class="bg-gray-50">
+                                        <td colspan="5" class="py-2 px-4">
+                                            <div class="flex items-center font-semibold text-gray-700">
+                                                <i class="fas fa-chart-bar mr-2"></i>
+                                                <span>Reports</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-3 pl-12">
+                                            <span class="text-sm text-gray-700">Stock Reports</span>
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500" checked />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-green-600 focus:ring-green-500" disabled />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-red-600 focus:ring-red-500" disabled />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-purple-600 focus:ring-purple-500" checked />
+                                        </td>
+                                    </tr>
+
+                                    <!-- Settings Section -->
+                                    <tr class="bg-gray-50">
+                                        <td colspan="5" class="py-2 px-4">
+                                            <div class="flex items-center font-semibold text-gray-700">
+                                                <i class="fas fa-cog mr-2"></i>
+                                                <span>Settings</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-3 pl-12">
+                                            <span class="text-sm text-gray-700">Company Information</span>
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500" checked />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-green-600 focus:ring-green-500" />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-red-600 focus:ring-red-500" disabled />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-purple-600 focus:ring-purple-500" />
+                                        </td>
+                                    </tr>
+
+                                    <!-- User Management Section -->
+                                    <tr class="bg-gray-50">
+                                        <td colspan="5" class="py-2 px-4">
+                                            <div class="flex items-center font-semibold text-gray-700">
+                                                <i class="fas fa-users mr-2"></i>
+                                                <span>User Management</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-3 pl-12">
+                                            <span class="text-sm text-gray-700">Manage Users</span>
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-green-600 focus:ring-green-500" />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-red-600 focus:ring-red-500" />
+                                        </td>
+                                        <td class="py-3 text-center">
+                                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-purple-600 focus:ring-purple-500" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="mt-6 flex justify-end space-x-3 border-t border-gray-200 pt-4">
+                            <button 
+                                onclick="window.location.href='user-management.html'"
+                                class="rounded-lg border border-gray-300 bg-white px-6 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                            >
+                                Cancel
+                            </button>
+                            <button 
+                                onclick="savePermissions()"
+                                class="rounded-lg bg-blue-600 px-6 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                            >
+                                <i class="fas fa-save mr-2"></i>
+                                Save Permissions
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Permission Summary Card -->
+                <div class="mt-6 rounded-lg border border-blue-200 bg-blue-50 p-4">
+                    <div class="flex items-start">
+                        <i class="fas fa-info-circle text-blue-600 mt-0.5 mr-3"></i>
+                        <div class="text-sm text-blue-800">
+                            <p class="font-semibold mb-1">Permission Logic:</p>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li><strong>View Only:</strong> User can view the module but cannot create, edit, or delete records.</li>
+                                <li><strong>Allow Edit:</strong> User can create and edit records (requires View Only to be checked).</li>
+                                <li><strong>Allow Delete:</strong> User can delete records (requires View Only and Allow Edit).</li>
+                                <li><strong>Allow Export:</strong> User can export data to Excel/PDF.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function savePermissions() {
+            alert('Permissions saved successfully!');
+            setTimeout(() => {
+                window.location.href = 'user-management.html';
+            }, 1000);
+        }
+
+        // Handle permission dependencies
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const row = this.closest('tr');
+                const checkboxes = row.querySelectorAll('input[type="checkbox"]');
+                const viewCheck = checkboxes[0];
+                const editCheck = checkboxes[1];
+                const deleteCheck = checkboxes[2];
+                
+                // If edit is checked, view must be checked
+                if (this === editCheck && this.checked) {
+                    viewCheck.checked = true;
+                }
+                
+                // If delete is checked, edit and view must be checked
+                if (this === deleteCheck && this.checked) {
+                    viewCheck.checked = true;
+                    editCheck.checked = true;
+                }
+                
+                // If view is unchecked, uncheck all others
+                if (this === viewCheck && !this.checked) {
+                    editCheck.checked = false;
+                    deleteCheck.checked = false;
+                }
+                
+                // If edit is unchecked, uncheck delete
+                if (this === editCheck && !this.checked) {
+                    deleteCheck.checked = false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

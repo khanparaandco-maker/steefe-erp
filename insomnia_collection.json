@@ -1,0 +1,532 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2024-11-19T00:00:00.000Z",
+  "__export_source": "insomnia.desktop.app:v2023.5.8",
+  "resources": [
+    {
+      "_id": "wrk_steelmelt",
+      "_type": "workspace",
+      "name": "SteelMelt ERP",
+      "description": "Manufacturing ERP API for Steel Product Company",
+      "scope": "collection"
+    },
+    {
+      "_id": "env_base",
+      "_type": "environment",
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:3000/api"
+      }
+    },
+    {
+      "_id": "fld_suppliers",
+      "_type": "request_group",
+      "name": "Suppliers",
+      "parentId": "wrk_steelmelt"
+    },
+    {
+      "_id": "req_suppliers_list",
+      "_type": "request",
+      "name": "Get All Suppliers",
+      "method": "GET",
+      "url": "{{ _.base_url }}/suppliers",
+      "parentId": "fld_suppliers"
+    },
+    {
+      "_id": "req_suppliers_create",
+      "_type": "request",
+      "name": "Create Supplier",
+      "method": "POST",
+      "url": "{{ _.base_url }}/suppliers",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"ABC Steel Suppliers\",\n  \"address_line1\": \"123 Main Street\",\n  \"address_line2\": \"Building A\",\n  \"city\": \"Mumbai\",\n  \"state\": \"Maharashtra\",\n  \"gstn\": \"27ABCDE1234F1Z5\",\n  \"contact_person1\": \"John Doe\",\n  \"mobile\": \"9876543210\",\n  \"contact_person2\": \"Jane Smith\"\n}"
+      },
+      "parentId": "fld_suppliers"
+    },
+    {
+      "_id": "req_suppliers_get",
+      "_type": "request",
+      "name": "Get Supplier by ID",
+      "method": "GET",
+      "url": "{{ _.base_url }}/suppliers/1",
+      "parentId": "fld_suppliers"
+    },
+    {
+      "_id": "req_suppliers_update",
+      "_type": "request",
+      "name": "Update Supplier",
+      "method": "PUT",
+      "url": "{{ _.base_url }}/suppliers/1",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"ABC Steel Suppliers Updated\",\n  \"city\": \"Pune\"\n}"
+      },
+      "parentId": "fld_suppliers"
+    },
+    {
+      "_id": "req_suppliers_delete",
+      "_type": "request",
+      "name": "Delete Supplier",
+      "method": "DELETE",
+      "url": "{{ _.base_url }}/suppliers/1",
+      "parentId": "fld_suppliers"
+    },
+    {
+      "_id": "fld_categories",
+      "_type": "request_group",
+      "name": "Categories",
+      "parentId": "wrk_steelmelt"
+    },
+    {
+      "_id": "req_categories_list",
+      "_type": "request",
+      "name": "Get All Categories",
+      "method": "GET",
+      "url": "{{ _.base_url }}/categories",
+      "parentId": "fld_categories"
+    },
+    {
+      "_id": "req_categories_create",
+      "_type": "request",
+      "name": "Create Category",
+      "method": "POST",
+      "url": "{{ _.base_url }}/categories",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Finished Product\",\n  \"alias\": \"FP\"\n}"
+      },
+      "parentId": "fld_categories"
+    },
+    {
+      "_id": "fld_uom",
+      "_type": "request_group",
+      "name": "UOM",
+      "parentId": "wrk_steelmelt"
+    },
+    {
+      "_id": "req_uom_list",
+      "_type": "request",
+      "name": "Get All UOMs",
+      "method": "GET",
+      "url": "{{ _.base_url }}/uom",
+      "parentId": "fld_uom"
+    },
+    {
+      "_id": "req_uom_create",
+      "_type": "request",
+      "name": "Create UOM",
+      "method": "POST",
+      "url": "{{ _.base_url }}/uom",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"short_name\": \"TON\",\n  \"description\": \"Metric Ton\"\n}"
+      },
+      "parentId": "fld_uom"
+    },
+    {
+      "_id": "fld_gst_rates",
+      "_type": "request_group",
+      "name": "GST Rates",
+      "parentId": "wrk_steelmelt"
+    },
+    {
+      "_id": "req_gst_list",
+      "_type": "request",
+      "name": "Get All GST Rates",
+      "method": "GET",
+      "url": "{{ _.base_url }}/gst-rates",
+      "parentId": "fld_gst_rates"
+    },
+    {
+      "_id": "req_gst_create",
+      "_type": "request",
+      "name": "Create GST Rate",
+      "method": "POST",
+      "url": "{{ _.base_url }}/gst-rates",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"hsn_code\": \"7204\",\n  \"rate_percentage\": 18.00,\n  \"effective_date\": \"2024-01-01\",\n  \"is_active\": true\n}"
+      },
+      "parentId": "fld_gst_rates"
+    },
+    {
+      "_id": "req_gst_by_hsn",
+      "_type": "request",
+      "name": "Get GST Rate by HSN",
+      "method": "GET",
+      "url": "{{ _.base_url }}/gst-rates/hsn/7201",
+      "parentId": "fld_gst_rates"
+    },
+    {
+      "_id": "fld_items",
+      "_type": "request_group",
+      "name": "Items",
+      "parentId": "wrk_steelmelt"
+    },
+    {
+      "_id": "req_items_list",
+      "_type": "request",
+      "name": "Get All Items",
+      "method": "GET",
+      "url": "{{ _.base_url }}/items",
+      "parentId": "fld_items"
+    },
+    {
+      "_id": "req_items_create",
+      "_type": "request",
+      "name": "Create Item",
+      "method": "POST",
+      "url": "{{ _.base_url }}/items",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Steel Bar 10mm\",\n  \"alias\": \"SB10\",\n  \"category_id\": 2,\n  \"uom_id\": 1,\n  \"gst_rate_id\": 1\n}"
+      },
+      "parentId": "fld_items"
+    },
+    {
+      "_id": "req_items_get",
+      "_type": "request",
+      "name": "Get Item by ID",
+      "method": "GET",
+      "url": "{{ _.base_url }}/items/1",
+      "parentId": "fld_items"
+    },
+    {
+      "_id": "fld_transporters",
+      "_type": "request_group",
+      "name": "Transporters",
+      "parentId": "wrk_steelmelt"
+    },
+    {
+      "_id": "req_transporters_list",
+      "_type": "request",
+      "name": "Get All Transporters",
+      "method": "GET",
+      "url": "{{ _.base_url }}/transporters",
+      "parentId": "fld_transporters"
+    },
+    {
+      "_id": "req_transporters_create",
+      "_type": "request",
+      "name": "Create Transporter",
+      "method": "POST",
+      "url": "{{ _.base_url }}/transporters",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"XYZ Transport Services\",\n  \"address_line1\": \"456 Transport Road\",\n  \"city\": \"Mumbai\",\n  \"state\": \"Maharashtra\",\n  \"gstn\": \"27XYZAB1234C1D2\",\n  \"contact_person\": \"Transport Manager\",\n  \"mobile\": \"9876543210\"\n}"
+      },
+      "parentId": "fld_transporters"
+    },
+    {
+      "_id": "fld_customers",
+      "_type": "request_group",
+      "name": "Customers",
+      "parentId": "wrk_steelmelt"
+    },
+    {
+      "_id": "req_customers_list",
+      "_type": "request",
+      "name": "Get All Customers",
+      "method": "GET",
+      "url": "{{ _.base_url }}/customers",
+      "parentId": "fld_customers"
+    },
+    {
+      "_id": "req_customers_create",
+      "_type": "request",
+      "name": "Create Customer (Same State)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/customers",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"ABC Manufacturing Ltd\",\n  \"address_line1\": \"789 Industrial Area\",\n  \"city\": \"Pune\",\n  \"state\": \"Maharashtra\",\n  \"gstn\": \"27ABCDE5678F1G2\",\n  \"contact_person\": \"Purchase Manager\",\n  \"mobile\": \"9876543210\"\n}"
+      },
+      "parentId": "fld_customers"
+    },
+    {
+      "_id": "req_customers_create_interstate",
+      "_type": "request",
+      "name": "Create Customer (Different State)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/customers",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"XYZ Industries Pvt Ltd\",\n  \"address_line1\": \"321 Factory Lane\",\n  \"city\": \"Bangalore\",\n  \"state\": \"Karnataka\",\n  \"gstn\": \"29XYZPQ9876K5L4\",\n  \"contact_person\": \"Procurement Head\",\n  \"mobile\": \"9988776655\"\n}"
+      },
+      "parentId": "fld_customers"
+    },
+    {
+      "_id": "fld_orders",
+      "_type": "request_group",
+      "name": "Orders",
+      "parentId": "wrk_steelmelt"
+    },
+    {
+      "_id": "req_orders_list",
+      "_type": "request",
+      "name": "Get All Orders",
+      "method": "GET",
+      "url": "{{ _.base_url }}/orders",
+      "parentId": "fld_orders"
+    },
+    {
+      "_id": "req_orders_pending",
+      "_type": "request",
+      "name": "Get Pending Orders",
+      "method": "GET",
+      "url": "{{ _.base_url }}/orders/status/pending",
+      "parentId": "fld_orders"
+    },
+    {
+      "_id": "req_orders_create",
+      "_type": "request",
+      "name": "Create Order (Same State - CGST+SGST)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/orders",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"customer_id\": 1,\n  \"order_date\": \"2024-11-19\",\n  \"po_no\": \"PO-2024-001\",\n  \"estimated_delivery_date\": \"2024-12-01\",\n  \"items\": [\n    {\n      \"item_id\": 1,\n      \"quantity\": 1000,\n      \"rate\": 50.00\n    },\n    {\n      \"item_id\": 2,\n      \"quantity\": 500,\n      \"rate\": 75.00\n    }\n  ]\n}"
+      },
+      "parentId": "fld_orders"
+    },
+    {
+      "_id": "req_orders_create_igst",
+      "_type": "request",
+      "name": "Create Order (Different State - IGST)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/orders",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"customer_id\": 2,\n  \"order_date\": \"2024-11-19\",\n  \"po_no\": \"PO-2024-002\",\n  \"estimated_delivery_date\": \"2024-12-05\",\n  \"items\": [\n    {\n      \"item_id\": 1,\n      \"quantity\": 2000,\n      \"rate\": 52.00\n    }\n  ]\n}"
+      },
+      "parentId": "fld_orders"
+    },
+    {
+      "_id": "req_orders_get",
+      "_type": "request",
+      "name": "Get Order by ID",
+      "method": "GET",
+      "url": "{{ _.base_url }}/orders/1",
+      "parentId": "fld_orders"
+    },
+    {
+      "_id": "req_orders_balance",
+      "_type": "request",
+      "name": "Get Order Items Balance",
+      "method": "GET",
+      "url": "{{ _.base_url }}/orders/1/balance",
+      "parentId": "fld_orders"
+    },
+    {
+      "_id": "req_orders_update",
+      "_type": "request",
+      "name": "Update Order",
+      "method": "PUT",
+      "url": "{{ _.base_url }}/orders/1",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"po_no\": \"PO-2024-001-REV\",\n  \"estimated_delivery_date\": \"2024-12-10\"\n}"
+      },
+      "parentId": "fld_orders"
+    },
+    {
+      "_id": "fld_dispatches",
+      "_type": "request_group",
+      "name": "Dispatches",
+      "parentId": "wrk_steelmelt"
+    },
+    {
+      "_id": "req_dispatches_list",
+      "_type": "request",
+      "name": "Get All Dispatches",
+      "method": "GET",
+      "url": "{{ _.base_url }}/dispatches",
+      "parentId": "fld_dispatches"
+    },
+    {
+      "_id": "req_dispatches_create",
+      "_type": "request",
+      "name": "Create Dispatch (Partial)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/dispatches",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"order_id\": 1,\n  \"dispatch_date\": \"2024-11-20\",\n  \"transporter_id\": 1,\n  \"lr_no\": \"LR-2024-001\",\n  \"lr_date\": \"2024-11-20\",\n  \"invoice_no\": \"INV-2024-001\",\n  \"invoice_date\": \"2024-11-20\",\n  \"upload_path\": \"/uploads/invoice_001.pdf\",\n  \"items\": [\n    {\n      \"order_item_id\": 1,\n      \"quantity_dispatched\": 500\n    },\n    {\n      \"order_item_id\": 2,\n      \"quantity_dispatched\": 250\n    }\n  ]\n}"
+      },
+      "parentId": "fld_dispatches"
+    },
+    {
+      "_id": "req_dispatches_create_complete",
+      "_type": "request",
+      "name": "Create Dispatch (Complete Remaining)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/dispatches",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"order_id\": 1,\n  \"dispatch_date\": \"2024-11-25\",\n  \"transporter_id\": 1,\n  \"lr_no\": \"LR-2024-002\",\n  \"lr_date\": \"2024-11-25\",\n  \"invoice_no\": \"INV-2024-002\",\n  \"invoice_date\": \"2024-11-25\",\n  \"items\": [\n    {\n      \"order_item_id\": 1,\n      \"quantity_dispatched\": 500\n    },\n    {\n      \"order_item_id\": 2,\n      \"quantity_dispatched\": 250\n    }\n  ]\n}"
+      },
+      "parentId": "fld_dispatches"
+    },
+    {
+      "_id": "req_dispatches_get",
+      "_type": "request",
+      "name": "Get Dispatch by ID",
+      "method": "GET",
+      "url": "{{ _.base_url }}/dispatches/1",
+      "parentId": "fld_dispatches"
+    },
+    {
+      "_id": "req_dispatches_history",
+      "_type": "request",
+      "name": "Get Dispatch History for Order",
+      "method": "GET",
+      "url": "{{ _.base_url }}/dispatches/order/1/history",
+      "parentId": "fld_dispatches"
+    },
+    {
+      "_id": "req_dispatches_update",
+      "_type": "request",
+      "name": "Update Dispatch",
+      "method": "PUT",
+      "url": "{{ _.base_url }}/dispatches/1",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"lr_no\": \"LR-2024-001-REV\",\n  \"invoice_no\": \"INV-2024-001-REV\"\n}"
+      },
+      "parentId": "fld_dispatches"
+    },
+    {
+      "_id": "fld_test_scenarios",
+      "_type": "request_group",
+      "name": "Test Scenarios",
+      "parentId": "wrk_steelmelt"
+    },
+    {
+      "_id": "req_test_exceed_balance",
+      "_type": "request",
+      "name": "Test: Exceed Balance (Should Fail)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/dispatches",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"order_id\": 1,\n  \"dispatch_date\": \"2024-11-20\",\n  \"transporter_id\": 1,\n  \"lr_no\": \"LR-TEST\",\n  \"items\": [\n    {\n      \"order_item_id\": 1,\n      \"quantity_dispatched\": 99999\n    }\n  ]\n}"
+      },
+      "parentId": "fld_test_scenarios"
+    },
+    {
+      "_id": "req_test_gst_calculation",
+      "_type": "request",
+      "name": "Test: GST Calculation Verification",
+      "method": "GET",
+      "url": "{{ _.base_url }}/orders/1",
+      "parentId": "fld_test_scenarios",
+      "description": "After creating an order, verify:\n1. Same state customer: CGST and SGST should be equal, IGST = 0\n2. Different state customer: IGST should have value, CGST and SGST = 0\n3. Bag count = Quantity / 25"
+    },
+    {
+      "_id": "req_health",
+      "_type": "request",
+      "name": "Health Check",
+      "method": "GET",
+      "url": "http://localhost:3000/health",
+      "parentId": "wrk_steelmelt"
+    }
+  ]
+}
