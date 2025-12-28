@@ -212,7 +212,7 @@ const PendingByPartyReport = () => {
 
       {/* Report Header for Print */}
       <div className="hidden print:block mb-6">
-        <h1 className="text-2xl font-bold text-center mb-2">SteelMelt ERP</h1>
+        <h1 className="text-2xl font-bold text-center mb-2">SSCPL</h1>
         <h2 className="text-xl font-semibold text-center mb-4">Pending By Party Report</h2>
         <p className="text-sm text-center text-gray-600">
           Generated on: {formatDate(new Date().toISOString())}

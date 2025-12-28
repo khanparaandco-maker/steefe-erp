@@ -94,7 +94,7 @@ const PrintMeltingProcess = () => {
       <div className="print-container mx-auto max-w-4xl bg-white p-8">
         {/* Header */}
         <div className="mb-6 border-b-2 border-gray-800 pb-4 text-center">
-          <h1 className="text-3xl font-bold text-gray-900">STEELMELT ERP</h1>
+          <h1 className="text-3xl font-bold text-gray-900">SSCPL</h1>
           <h2 className="mt-2 text-xl font-semibold text-gray-700">Melting Process Record</h2>
         </div>
 

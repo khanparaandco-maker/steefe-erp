@@ -150,7 +150,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
       <div className="flex h-full flex-col">
         {/* Logo */}
         <div className="flex h-16 items-center justify-center border-b border-gray-700 bg-gray-900">
-          <h1 className="text-xl font-bold text-white">SteelMelt ERP</h1>
+          <h1 className="text-xl font-bold text-white">SSCPL</h1>
         </div>
 
         {/* Navigation */}

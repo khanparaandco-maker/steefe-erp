@@ -78,7 +78,7 @@ const PrintHeatTreatment = () => {
         {/* Company Header */}
         <div className="text-center mb-8 pb-4 border-b-2 border-gray-800">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            {companyInfo?.company_name || 'SteelMelt ERP'}
+            {companyInfo?.company_name || 'SSCPL'}
           </h1>
           {companyInfo?.address && (
             <p className="text-sm text-gray-600">{companyInfo.address}</p>

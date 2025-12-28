@@ -80,7 +80,7 @@ const Dashboard = () => {
     <div>
       <div className="mb-6">
         <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-        <p className="mt-1 text-sm text-gray-600">Welcome to SteelMelt ERP System</p>
+        <p className="mt-1 text-sm text-gray-600">Welcome to SSCPL</p>
       </div>
 
       {/* Stats Grid */}
