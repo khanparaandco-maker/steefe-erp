@@ -2,7 +2,19 @@ require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcryptjs');
-const { pool, query } = require('../config/database');
+const { Pool } = require('pg');
+
+// Create pool with SSL for production
+const pool = new Pool(
+  process.env.DATABASE_URL
+    ? {
+        connectionString: process.env.DATABASE_URL,
+        ssl: { rejectUnauthorized: false }
+      }
+    : require('../config/database').pool
+);
+
+const query = (text, params) => pool.query(text, params);
 
 /**
  * Complete database setup for production
