@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Save, Plus, Trash2, Upload, X } from 'lucide-react';
 import { apiService } from '../../services/api';
 import { showToast } from '../../utils/helpers';
+import { API_BASE_URL } from '../../utils/constants';
 
 const ScrapGRN = () => {
   const navigate = useNavigate();
@@ -38,7 +39,7 @@ const ScrapGRN = () => {
       setLoading(true);
       const [suppliersRes, itemsRes, settingsRes] = await Promise.all([
         apiService.getSuppliers(),
-        fetch('http://localhost:3000/api/scrap-grn/items/raw-materials').then(r => r.json()),
+        fetch(`${API_BASE_URL}/api/scrap-grn/items/raw-materials`).then(r => r.json()),
         apiService.getSettings()
       ]);
       
@@ -230,7 +231,7 @@ const ScrapGRN = () => {
         });
       });
       
-      const response = await fetch('http://localhost:3000/api/scrap-grn', {
+      const response = await fetch(`${API_BASE_URL}/api/scrap-grn`, {
         method: 'POST',
         body: formDataToSend
       });

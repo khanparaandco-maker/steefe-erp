@@ -4,7 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { showToast } from '../../utils/helpers';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000/api';
+import { API_BASE_URL } from '../../utils/constants';
+
+const API_URL = `${API_BASE_URL}/api`;
 
 const WhatsappIntegration = () => {
   const navigate = useNavigate();

@@ -61,7 +61,7 @@ git push -u origin main
    - **Runtime:** Node
    - **Build Command:** 
      ```
-     npm install && cd frontend && npm install && npm run build && cd ..
+     npm install && cd frontend && npm install && npm run build && cd .. && ls -la frontend/dist
      ```
    - **Start Command:** 
      ```

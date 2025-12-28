@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Save, Plus, Trash2, Upload, X } from 'lucide-react';
 import { apiService } from '../../services/api';
+import { API_BASE_URL } from '../../utils/constants';
 
 const EditScrapGRN = () => {
   const navigate = useNavigate();
@@ -44,7 +45,7 @@ const EditScrapGRN = () => {
       
       // Fetch data sequentially for reliability
       const suppliersRes = await apiService.getSuppliers();
-      const itemsRes = await fetch('http://localhost:3000/api/scrap-grn/items/raw-materials').then(r => r.json());
+      const itemsRes = await fetch(`${API_BASE_URL}/api/scrap-grn/items/raw-materials`).then(r => r.json());
       const settingsRes = await apiService.getSettings();
       const grnRes = await apiService.getScrapGRN(id);
       
@@ -287,7 +288,7 @@ const EditScrapGRN = () => {
         });
       });
       
-      const response = await fetch(`http://localhost:3000/api/scrap-grn/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/api/scrap-grn/${id}`, {
         method: 'PUT',
         body: formDataToSend
       });

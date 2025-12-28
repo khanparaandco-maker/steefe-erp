@@ -295,3 +295,5 @@ ORDER BY movement_date DESC, movement_type
 - Each bag = 25 kg (as per requirement)
 - WIP calculation may need adjustment based on actual process tracking
 - Consider adding indexes on frequently queried columns (dates, item_id, etc.)
+
+npm install && cd frontend && npm install && npm run build && cd .. && ls -la frontend/dist

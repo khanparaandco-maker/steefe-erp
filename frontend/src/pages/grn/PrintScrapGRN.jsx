@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { apiService } from '../../services/api';
+import { API_BASE_URL } from '../../utils/constants';
 
 const PrintScrapGRN = () => {
   const { id } = useParams();
@@ -92,7 +93,7 @@ const PrintScrapGRN = () => {
             </div>
             {companyInfo?.logo_url && (
               <img 
-                src={`http://localhost:3000${companyInfo.logo_url}`} 
+                src={`${API_BASE_URL}${companyInfo.logo_url}`} 
                 alt="Company Logo" 
                 className="h-20 object-contain"
               />

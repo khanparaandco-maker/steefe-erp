@@ -7,7 +7,9 @@ import axios from 'axios';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
-const API_URL = 'http://localhost:3000/api';
+import { API_BASE_URL } from '../../utils/constants';
+
+const API_URL = `${API_BASE_URL}/api`;
 
 // Number to words conversion
 const numberToWords = (num) => {
@@ -96,7 +98,7 @@ const ProformaInvoice = () => {
       console.log('Full Company Response:', companyData);
       console.log('Logo URL from DB:', companyData?.logo_url);
       console.log('Logo Filename:', companyData?.logo_filename);
-      console.log('Constructed Logo URL:', companyData?.logo_url ? 'http://localhost:3000' + companyData.logo_url : 'No logo');
+      console.log('Constructed Logo URL:', companyData?.logo_url ? API_BASE_URL + companyData.logo_url : 'No logo');
       console.log('========================');
       setCompanyInfo(companyData);
       
