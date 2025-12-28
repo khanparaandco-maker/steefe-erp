@@ -8,6 +8,7 @@
     "dev": "nodemon server.js",
     "init-db": "node scripts/initDatabase.js",
     "seed-defaults": "node scripts/seedDefaultData.js",
+    "setup-prod-db": "node scripts/setupProductionDB.js",
     "build": "cd frontend && npm install && npm run build",
     "postinstall": "cd frontend && npm install || true"
   },
