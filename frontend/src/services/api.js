@@ -1,8 +1,13 @@
 import axios from 'axios';
 
 // Create axios instance with default config
+// Use production URL on Render, localhost for development
+const API_BASE_URL = window.location.hostname === 'localhost' 
+  ? 'http://localhost:3000/api'
+  : '/api'; // Same domain in production
+
 const api = axios.create({
-  baseURL: 'http://localhost:3000/api',
+  baseURL: API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },
