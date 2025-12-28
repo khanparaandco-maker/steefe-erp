@@ -2,12 +2,9 @@ services:
   # PostgreSQL Database
   - type: pserv
     name: steefe-erp-db
-    env: docker
     plan: free
-    databases:
-      - name: steefe_erp_db
-        databaseName: steefe_erp_db
-        user: steefe_erp_user
+    databaseName: steefe_erp_db
+    databaseUser: steefe_erp_user
 
   # Web Service (Backend + Frontend)
   - type: web
